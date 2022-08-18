@@ -10,7 +10,7 @@ export default class CreateUserService {
       .findOne({ where: { email: login.email } }) as Users;
 
     if (!userLogin) {
-      throw new CustomError(401, 'Incorret email or password');
+      throw new CustomError(401, 'Incorrect email or password');
     }
 
     BCrypt.comparePassword(login.password, userLogin.password);

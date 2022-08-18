@@ -1,6 +1,5 @@
-// import { StatusCodes } from 'http-status-codes';
 import LoginUserTypeDTO from '../dtos/login-user-type';
-import Users from '../models/create-users-model';
+import Users from '../database/models/create-users-model';
 import BCrypt from '../Utils/bCrypt';
 import CustomError from '../Utils/CustomError';
 import JwtService from '../Utils/token/jwt.service';

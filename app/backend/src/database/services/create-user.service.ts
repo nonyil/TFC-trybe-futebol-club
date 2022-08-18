@@ -8,7 +8,7 @@ import JwtService from '../Utils/token/jwt.service';
 export default class CreateUserService {
   static async Login(login: LoginUserTypeDTO) {
     const userLogin = await Users
-      .findOne({ where: { email: login.email, password: login.password } });
+      .findOne({ where: { email: login.email } });
 
     if (!login.email || !login.password) {
       throw new CustomEror(400, 'All fields must be filled');

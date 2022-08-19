@@ -7,7 +7,7 @@ export default class CreateMatches extends Model {
 
   declare homeTeam: number;
 
-  declare homeTeamGols: number;
+  declare homeTeamGoals: number;
 
   declare awayTeam: number;
 

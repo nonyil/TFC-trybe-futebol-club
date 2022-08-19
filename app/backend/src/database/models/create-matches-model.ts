@@ -48,6 +48,7 @@ CreateMatches.init(
     inProgress: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
+      defaultValue: false,
     },
   },
   {
@@ -58,10 +59,14 @@ CreateMatches.init(
   },
 );
 
-CreateMatches.belongsTo(CreateTeams, { foreignKey: 'homeTeam', as: 'homeTeam' });
+CreateMatches
+  .belongsTo(CreateTeams, { foreignKey: 'homeTeam', as: 'teamHome' });
 
-CreateMatches.belongsTo(CreateTeams, { foreignKey: 'awayTeam', as: 'hometeam' });
+CreateMatches
+  .belongsTo(CreateTeams, { foreignKey: 'awayTeam', as: 'teamAway' });
 
-CreateTeams.hasMany(CreateTeams, { foreignKey: 'homeTeam', as: 'homeTeam' });
+CreateTeams
+  .hasMany(CreateMatches, { foreignKey: 'homeTeam', as: 'teamHome' });
 
-CreateTeams.hasMany(CreateTeams, { foreignKey: 'awayTeam', as: 'awayTeam' });
+CreateTeams
+  .hasMany(CreateMatches, { foreignKey: 'awayTeam', as: 'teamAway' });

@@ -70,3 +70,9 @@ CreateTeams
 
 CreateTeams
   .hasMany(CreateMatches, { foreignKey: 'awayTeam', as: 'teamAway' });
+
+CreateTeams
+  .hasMany(CreateMatches, { foreignKey: 'homeTeam', as: 'homeMatches' });
+
+CreateTeams
+  .hasMany(CreateMatches, { foreignKey: 'awayTeam', as: 'awayMatches' });

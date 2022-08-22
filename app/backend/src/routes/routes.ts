@@ -10,6 +10,8 @@ import CreateMatchesController from '../controller/create-matches.controller';
 import PatchMatchesController from '../controller/patch-matches.controller';
 import tokenValidate from '../middlewares/tokenValidate';
 import PatchMatchesByIdController from '../controller/patch-matches-id.controller';
+import GetLeaderBoardControlller from '../controller/get-leaderBoard.controller';
+import GetAwayLeaderBoardControlller from '../controller/get-away-leaderboard.controller';
 
 const router = Router();
 
@@ -31,5 +33,11 @@ router
 router.patch('/matches/:id/finish', PatchMatchesController.patch);
 
 router.patch('/matches/:id', PatchMatchesByIdController.patch);
+
+router
+  .get('/leaderboard/home', GetLeaderBoardControlller.getLeaderBoard)
+  .get('/leaderboard/away', GetAwayLeaderBoardControlller.getAwayLeaderBoard);
+
+// router.get('leaderboard/away', GetLeaderBoardControlller.getLeaderBoard);
 
 export default router;
